@@ -32,7 +32,7 @@ export function Projects() {
   return (
     <section id="projects">
       <div className="section-container">
-        <div className="text-center mb-12">
+        <div className="text-left mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-3">
             {t("projects.title")}
           </h2>

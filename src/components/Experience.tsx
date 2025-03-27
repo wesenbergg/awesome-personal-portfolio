@@ -1,4 +1,3 @@
-
 import { useLanguage } from "@/context/useLanguage";
 import { Calendar } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
@@ -60,9 +59,11 @@ export function Experience() {
   return (
     <section id="experience" className="bg-background" ref={sectionRef}>
       <div className="section-container">
-        <div 
-          className={`text-center mb-12 transition-all duration-700 ease-out ${
-            isVisible ? "opacity-100 transform translate-y-0" : "opacity-0 transform translate-y-4"
+        <div
+          className={`text-left mb-12 transition-all duration-700 ease-out ${
+            isVisible
+              ? "opacity-100 transform translate-y-0"
+              : "opacity-0 transform translate-y-4"
           }`}
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-3">
@@ -79,12 +80,12 @@ export function Experience() {
             <div
               key={exp.company}
               className={`relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 transition-all duration-700 ease-out ${
-                isVisible 
-                  ? "opacity-100 transform translate-y-0" 
+                isVisible
+                  ? "opacity-100 transform translate-y-0"
                   : "opacity-0 transform translate-y-4"
               }`}
-              style={{ 
-                transitionDelay: isVisible ? `${index * 300}ms` : "0ms"
+              style={{
+                transitionDelay: isVisible ? `${index * 300}ms` : "0ms",
               }}
             >
               <div
