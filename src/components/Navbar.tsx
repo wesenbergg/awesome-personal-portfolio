@@ -1,14 +1,29 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ThemeToggle } from "./ThemeToggle";
 import { LanguageSelector } from "./LanguageSelector";
 import { useLanguage } from "@/context/useLanguage";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useActiveSection } from "@/hooks/useActiveSection";
 
 export function Navbar() {
   const { t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navItemsRef = useRef<Record<string, HTMLElement | null>>({});
+  const indicatorRef = useRef<HTMLDivElement>(null);
+
+  const navLinks = [
+    { href: "#home", label: t("nav.home") },
+    { href: "#about", label: t("nav.about") },
+    { href: "#projects", label: t("nav.projects") },
+    { href: "#experience", label: t("nav.experience") },
+    { href: "#pricing", label: t("nav.pricing") },
+    { href: "#contact", label: t("nav.contact") },
+  ];
+
+  const sectionIds = navLinks.map((link) => link.href.substring(1));
+  const activeSection = useActiveSection(sectionIds, 100);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,14 +36,47 @@ export function Navbar() {
     };
   }, []);
 
-  const navLinks = [
-    { href: "#home", label: t("nav.home") },
-    { href: "#about", label: t("nav.about") },
-    { href: "#projects", label: t("nav.projects") },
-    { href: "#experience", label: t("nav.experience") },
-    { href: "#pricing", label: t("nav.pricing") },
-    { href: "#contact", label: t("nav.contact") },
-  ];
+  // Smooth animation for the pill indicator
+  useEffect(() => {
+    if (
+      !indicatorRef.current ||
+      !activeSection ||
+      !navItemsRef.current[activeSection]
+    )
+      return;
+
+    const activeElement = navItemsRef.current[activeSection];
+    const indicatorElement = indicatorRef.current;
+
+    if (activeElement) {
+      indicatorElement.style.left = `${activeElement.offsetLeft}px`;
+      indicatorElement.style.width = `${activeElement.offsetWidth}px`;
+      indicatorElement.style.opacity = "1";
+    } else {
+      indicatorElement.style.opacity = "0";
+    }
+  }, [activeSection]);
+
+  // Handle smooth scrolling for navigation links
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    e.preventDefault();
+    const targetId = href.substring(1);
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+      // Close mobile menu if open
+      if (mobileMenuOpen) setMobileMenuOpen(false);
+
+      // Smooth scroll to target
+      window.scrollTo({
+        top: targetElement.offsetTop - 80, // Offset for the fixed navbar
+        behavior: "smooth",
+      });
+    }
+  };
 
   return (
     <header
@@ -50,19 +98,38 @@ export function Navbar() {
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1">
+          <div className="hidden md:flex items-center space-x-1 relative py-1">
+            <div
+              ref={indicatorRef}
+              className="nav-indicator h-8 slide-transition"
+              style={{
+                left: navItemsRef.current[activeSection]?.offsetLeft ?? 0,
+                width: navItemsRef.current[activeSection]?.offsetWidth ?? 0,
+              }}
+            />
             <ul className="flex space-x-1">
-              {navLinks.map((link, index) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    className="px-4 py-2 text-sm font-medium rounded-full hover:bg-background/80 hover:shadow-sm transition-all duration-300 border border-transparent hover:border-border/50 backdrop-blur-sm"
-                    style={{ animationDelay: `${index * 100}ms` }}
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
+              {navLinks.map((link, index) => {
+                const sectionId = link.href.substring(1);
+                const isActive = activeSection === sectionId;
+
+                return (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      ref={(el) => (navItemsRef.current[sectionId] = el)}
+                      onClick={(e) => handleNavClick(e, link.href)}
+                      className={`px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 border border-transparent hover:border-border/50 backdrop-blur-sm block ${
+                        isActive
+                          ? "text-primary font-semibold"
+                          : "hover:bg-background/80 hover:shadow-sm"
+                      }`}
+                      style={{ animationDelay: `${index * 100}ms` }}
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
@@ -96,22 +163,44 @@ export function Navbar() {
         {mobileMenuOpen && (
           <div className="md:hidden pt-4 pb-3 animate-slide-down">
             <div className="glass-morphism rounded-xl p-2 shadow-sm">
-              <ul className="flex flex-col space-y-1">
-                {navLinks.map((link, index) => (
-                  <li
-                    key={link.href}
-                    className="animate-slide-up"
-                    style={{ animationDelay: `${index * 75}ms` }}
-                  >
-                    <a
-                      href={link.href}
-                      className="block px-4 py-2.5 text-base font-medium rounded-lg hover:bg-background/80 transition-all duration-300"
-                      onClick={() => setMobileMenuOpen(false)}
+              <ul className="flex flex-col space-y-1 relative">
+                <div
+                  className="nav-indicator left-0 w-full slide-transition rounded-lg"
+                  style={{
+                    top:
+                      navLinks.findIndex(
+                        (link) => link.href.substring(1) === activeSection
+                      ) *
+                        44 +
+                      4, // 44px per item + 4px padding
+                    opacity: activeSection ? 1 : 0,
+                    height: activeSection ? "40px" : "0px",
+                  }}
+                />
+                {navLinks.map((link, index) => {
+                  const sectionId = link.href.substring(1);
+                  const isActive = activeSection === sectionId;
+
+                  return (
+                    <li
+                      key={link.href}
+                      className="animate-slide-up"
+                      style={{ animationDelay: `${index * 75}ms` }}
                     >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
+                      <a
+                        href={link.href}
+                        onClick={(e) => handleNavClick(e, link.href)}
+                        className={`block px-4 py-2.5 text-base font-medium rounded-lg transition-all duration-300 ${
+                          isActive
+                            ? "text-primary font-semibold"
+                            : "hover:bg-background/80"
+                        }`}
+                      >
+                        {link.label}
+                      </a>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </div>
