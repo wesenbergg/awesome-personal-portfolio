@@ -206,6 +206,44 @@ const translations: Translations = {
     fi: "Ota yhteyttä",
   },
 
+  // Contact
+  "contact.title": {
+    en: "Get in Touch",
+    fi: "Ota yhteyttä",
+  },
+  "contact.subtitle": {
+    en: "Have a question or want to work together? Drop me a line!",
+    fi: "Onko sinulla kysyttävää tai haluatko tehdä yhteistyötä? Lähetä viesti!",
+  },
+  "contact.emailLabel": {
+    en: "Your Email",
+    fi: "Sähköpostiosoitteesi",
+  },
+  "contact.emailPlaceholder": {
+    en: "name@example.com",
+    fi: "nimi@esimerkki.com",
+  },
+  "contact.send": {
+    en: "Send Message",
+    fi: "Lähetä viesti",
+  },
+  "contact.sending": {
+    en: "Sending...",
+    fi: "Lähetetään...",
+  },
+  "contact.privacy": {
+    en: "I'll never share your email with anyone else.",
+    fi: "En koskaan jaa sähköpostiasi kenenkään muun kanssa.",
+  },
+  "contact.success": {
+    en: "Message Sent!",
+    fi: "Viesti lähetetty!",
+  },
+  "contact.successMessage": {
+    en: "I'll get back to you as soon as possible.",
+    fi: "Palaan asiaan mahdollisimman pian.",
+  },
+
   // Footer
   "footer.connect": {
     en: "Connect with me",
