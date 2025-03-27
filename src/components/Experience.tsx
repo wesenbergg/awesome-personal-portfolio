@@ -1,8 +1,12 @@
+
 import { useLanguage } from "@/context/useLanguage";
 import { Calendar } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 export function Experience() {
   const { t } = useLanguage();
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   const experiences = [
     {
@@ -31,10 +35,36 @@ export function Experience() {
     },
   ];
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
-    <section id="experience" className="bg-background">
+    <section id="experience" className="bg-background" ref={sectionRef}>
       <div className="section-container">
-        <div className="text-center mb-12">
+        <div 
+          className={`text-center mb-12 transition-all duration-700 ease-out ${
+            isVisible ? "opacity-100 transform translate-y-0" : "opacity-0 transform translate-y-4"
+          }`}
+        >
           <h2 className="text-3xl md:text-4xl font-bold mb-3">
             {t("experience.title")}
           </h2>
@@ -48,8 +78,14 @@ export function Experience() {
           {experiences.map((exp, index) => (
             <div
               key={exp.company}
-              className={`relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 animate-fade-in`}
-              style={{ animationDelay: `${index * 200}ms` }}
+              className={`relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 transition-all duration-700 ease-out ${
+                isVisible 
+                  ? "opacity-100 transform translate-y-0" 
+                  : "opacity-0 transform translate-y-4"
+              }`}
+              style={{ 
+                transitionDelay: isVisible ? `${index * 300}ms` : "0ms"
+              }}
             >
               <div
                 className={`md:text-right ${
