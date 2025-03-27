@@ -1,0 +1,63 @@
+# Cursor Rules for boriss-portfolio-palace
+
+# TypeScript Standards
+
+- Use TypeScript for all new files
+- Always define proper types for function parameters and return values
+- Use interfaces for complex object shapes
+- Prefer type over interface when extending types
+
+# React Best Practices
+
+- Use functional components with hooks
+- Extract reusable logic into custom hooks
+- Keep components focused on a single responsibility
+- Utilize React Context for global state that doesn't need Redux
+
+# Internationalization (i18n)
+
+- All user-facing strings must use the t() function from useLanguage hook
+- Keep translation keys organized by component/section
+- Add both English and Finnish translations for all new text
+
+# File Structure
+
+- Keep related hooks in separate files from components
+- Place shared types in dedicated type files
+- Use index.ts files to re-export from directories
+
+# Naming Conventions
+
+- Component files: PascalCase.tsx
+- Hook files: use[HookName].ts
+- Context files: [Name]Context.tsx
+- Utility files: camelCase.ts
+- Test files: [filename].test.tsx or [filename].spec.tsx
+
+# Code Style
+
+- Use double quotes for strings
+- Use semicolons at the end of statements
+- Max line length: 80 characters
+- Use 2 spaces for indentation
+- Use parentheses for multi-line JSX
+- Place imports in order: React, external libraries, internal modules
+
+# Performance
+
+- Memoize expensive calculations with useMemo
+- Use useCallback for functions passed to child components
+- Avoid unnecessary re-renders with React.memo when appropriate
+
+# Accessibility
+
+- All images must have alt text
+- Use semantic HTML elements
+- Ensure proper keyboard navigation
+- Use aria attributes when necessary
+
+# Styling
+
+- Use Tailwind CSS for styling
+- Create reusable UI components in the components/ui directory
+- Follow the design system colors and spacing
