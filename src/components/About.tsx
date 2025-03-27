@@ -1,5 +1,5 @@
 
-import { useLanguage } from '@/context/LanguageContext';
+import { useLanguage } from '@/context/useLanguage';
 import { CheckCircle2 } from 'lucide-react';
 
 export function About() {

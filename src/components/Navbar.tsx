@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { ThemeToggle } from './ThemeToggle';
 import { LanguageSelector } from './LanguageSelector';
-import { useLanguage } from '@/context/LanguageContext';
+import { useLanguage } from '@/context/useLanguage';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 

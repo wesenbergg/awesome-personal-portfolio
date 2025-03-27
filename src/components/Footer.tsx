@@ -1,5 +1,5 @@
 
-import { useLanguage } from '@/context/LanguageContext';
+import { useLanguage } from '@/context/useLanguage';
 import { Github, Linkedin, Instagram, Mail, MapPin } from 'lucide-react';
 
 export function Footer() {

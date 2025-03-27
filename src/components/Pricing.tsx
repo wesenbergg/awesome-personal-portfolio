@@ -1,5 +1,5 @@
 
-import { useLanguage } from '@/context/LanguageContext';
+import { useLanguage } from '@/context/useLanguage';
 import { Button } from '@/components/ui/button';
 import { Check } from 'lucide-react';
 

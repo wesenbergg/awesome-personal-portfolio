@@ -1,7 +1,6 @@
+import React, { createContext, useState, ReactNode } from "react";
 
-import React, { createContext, useState, useContext, ReactNode } from 'react';
-
-type Language = 'en' | 'es';
+type Language = "en" | "fi";
 
 type Translations = {
   [key: string]: {
@@ -12,214 +11,214 @@ type Translations = {
 // Translation dictionary
 const translations: Translations = {
   // Navbar
-  'nav.home': {
-    en: 'Home',
-    es: 'Inicio'
+  "nav.home": {
+    en: "Home",
+    fi: "Etusivu",
   },
-  'nav.about': {
-    en: 'About',
-    es: 'Sobre mí'
+  "nav.about": {
+    en: "About",
+    fi: "Tietoa",
   },
-  'nav.projects': {
-    en: 'Projects',
-    es: 'Proyectos'
+  "nav.projects": {
+    en: "Projects",
+    fi: "Projektit",
   },
-  'nav.experience': {
-    en: 'Experience',
-    es: 'Experiencia'
+  "nav.experience": {
+    en: "Experience",
+    fi: "Kokemus",
   },
-  'nav.pricing': {
-    en: 'Pricing',
-    es: 'Precios'
+  "nav.pricing": {
+    en: "Pricing",
+    fi: "Hinnoittelu",
   },
-  'nav.contact': {
-    en: 'Contact',
-    es: 'Contacto'
+  "nav.contact": {
+    en: "Contact",
+    fi: "Ota yhteyttä",
   },
-  
+
   // Hero
-  'hero.greeting': {
-    en: 'Hello, I\'m',
-    es: 'Hola, soy'
+  "hero.greeting": {
+    en: "Hello, I'm",
+    fi: "Hei, olen",
   },
-  'hero.role': {
-    en: 'Software Developer',
-    es: 'Desarrollador de Software'
+  "hero.role": {
+    en: "Software Developer",
+    fi: "Ohjelmistokehittäjä",
   },
-  'hero.location': {
-    en: 'Based in Berlin',
-    es: 'Ubicado en Berlín'
+  "hero.location": {
+    en: "Based in Berlin",
+    fi: "Berliinissä",
   },
-  'hero.cta': {
-    en: 'Get in touch',
-    es: 'Contáctame'
+  "hero.cta": {
+    en: "Get in touch",
+    fi: "Ota yhteyttä",
   },
-  'hero.secondary': {
-    en: 'View work',
-    es: 'Ver trabajo'
+  "hero.secondary": {
+    en: "View work",
+    fi: "Katso töitäni",
   },
-  
+
   // About
-  'about.title': {
-    en: 'About Me',
-    es: 'Sobre Mí'
+  "about.title": {
+    en: "About Me",
+    fi: "Tietoa minusta",
   },
-  'about.subtitle': {
-    en: 'Get to know me better',
-    es: 'Conóceme mejor'
+  "about.subtitle": {
+    en: "Get to know me better",
+    fi: "Tutustu minuun paremmin",
   },
-  'about.description': {
-    en: 'I am a friendly Software Developer from Finland, currently based in Berlin. For 2025, I made a New Year\'s resolution to code every day.',
-    es: 'Soy un amigable Desarrollador de Software de Finlandia, actualmente en Berlín. Para 2025, mi propósito de Año Nuevo es programar todos los días.'
+  "about.description": {
+    en: "I am a friendly Software Developer from Finland, currently based in Berlin. For 2025, I made a New Year's resolution to code every day.",
+    fi: "Olen ystävällinen ohjelmistokehittäjä Suomesta, tällä hetkellä asun Berliinissä. Vuodelle 2025 tein uudenvuodenlupauksen koodata joka päivä.",
   },
-  'about.fact1': {
-    en: 'Passionate to discover and learn new tech.',
-    es: 'Apasionado por descubrir y aprender nuevas tecnologías.'
+  "about.fact1": {
+    en: "Passionate to discover and learn new tech.",
+    fi: "Intohimoinen löytämään ja oppimaan uutta teknologiaa.",
   },
-  'about.fact2': {
-    en: 'Interested in mastering AWS and UX.',
-    es: 'Interesado en dominar AWS y UX.'
+  "about.fact2": {
+    en: "Interested in mastering AWS and UX.",
+    fi: "Kiinnostunut hallitsemaan AWS:ää ja UX:ää.",
   },
-  'about.fact3': {
-    en: 'In my free time I listen to audio books.',
-    es: 'En mi tiempo libre escucho audiolibros.'
+  "about.fact3": {
+    en: "In my free time I listen to audio books.",
+    fi: "Vapaa-ajallani kuuntelen äänikirjoja.",
   },
-  
+
   // Projects
-  'projects.title': {
-    en: 'Projects',
-    es: 'Proyectos'
+  "projects.title": {
+    en: "Projects",
+    fi: "Projektit",
   },
-  'projects.subtitle': {
-    en: 'My recent work',
-    es: 'Mi trabajo reciente'
+  "projects.subtitle": {
+    en: "My recent work",
+    fi: "Viimeaikaiset työni",
   },
-  'projects.uiux.title': {
-    en: 'UI/UX Design',
-    es: 'Diseño UI/UX'
+  "projects.uiux.title": {
+    en: "UI/UX Design",
+    fi: "UI/UX Suunnittelu",
   },
-  'projects.uiux.description': {
-    en: 'Creating intuitive and beautiful user interfaces.',
-    es: 'Creando interfaces de usuario intuitivas y hermosas.'
+  "projects.uiux.description": {
+    en: "Creating intuitive and beautiful user interfaces.",
+    fi: "Luon intuitiivisia ja kauniita käyttöliittymiä.",
   },
-  'projects.gradient.title': {
-    en: 'Gradient Tool',
-    es: 'Herramienta de Gradientes'
+  "projects.gradient.title": {
+    en: "Gradient Tool",
+    fi: "Väriliuku-työkalu",
   },
-  'projects.gradient.description': {
-    en: 'A tool for generating beautiful gradients.',
-    es: 'Una herramienta para generar hermosos gradientes.'
+  "projects.gradient.description": {
+    en: "A tool for generating beautiful gradients.",
+    fi: "Työkalu kauniiden väriliukujen luomiseen.",
   },
-  'projects.chess.title': {
-    en: 'Chess Clock',
-    es: 'Reloj de Ajedrez'
+  "projects.chess.title": {
+    en: "Chess Clock",
+    fi: "Shakkikello",
   },
-  'projects.chess.description': {
-    en: 'A digital chess clock for tournament play.',
-    es: 'Un reloj de ajedrez digital para juegos de torneo.'
+  "projects.chess.description": {
+    en: "A digital chess clock for tournament play.",
+    fi: "Digitaalinen shakkikello turnauspelaamiseen.",
   },
-  'projects.view': {
-    en: 'View Project',
-    es: 'Ver Proyecto'
+  "projects.view": {
+    en: "View Project",
+    fi: "Katso projekti",
   },
-  
+
   // Experience
-  'experience.title': {
-    en: 'Experience',
-    es: 'Experiencia'
+  "experience.title": {
+    en: "Experience",
+    fi: "Kokemus",
   },
-  'experience.subtitle': {
-    en: 'My professional journey',
-    es: 'Mi trayectoria profesional'
+  "experience.subtitle": {
+    en: "My professional journey",
+    fi: "Ammatillinen matkani",
   },
-  'experience.abb.title': {
-    en: 'Software Developer',
-    es: 'Desarrollador de Software'
+  "experience.abb.title": {
+    en: "Software Developer",
+    fi: "Ohjelmistokehittäjä",
   },
-  'experience.abb.company': {
-    en: 'ABB',
-    es: 'ABB'
+  "experience.abb.company": {
+    en: "ABB",
+    fi: "ABB",
   },
-  'experience.okrla.title': {
-    en: 'Frontend Developer',
-    es: 'Desarrollador Frontend'
+  "experience.okrla.title": {
+    en: "Frontend Developer",
+    fi: "Frontend-kehittäjä",
   },
-  'experience.okrla.company': {
-    en: 'Okrla',
-    es: 'Okrla'
+  "experience.okrla.company": {
+    en: "Okrla",
+    fi: "Okrla",
   },
-  'experience.telia.title': {
-    en: 'Full Stack Developer',
-    es: 'Desarrollador Full Stack'
+  "experience.telia.title": {
+    en: "Full Stack Developer",
+    fi: "Full Stack -kehittäjä",
   },
-  'experience.telia.company': {
-    en: 'Telia',
-    es: 'Telia'
+  "experience.telia.company": {
+    en: "Telia",
+    fi: "Telia",
   },
-  
+
   // Pricing
-  'pricing.title': {
-    en: 'Pricing',
-    es: 'Precios'
+  "pricing.title": {
+    en: "Pricing",
+    fi: "Hinnoittelu",
   },
-  'pricing.subtitle': {
-    en: 'Simple, transparent pricing',
-    es: 'Precios simples y transparentes'
+  "pricing.subtitle": {
+    en: "Simple, transparent pricing",
+    fi: "Yksinkertainen, läpinäkyvä hinnoittelu",
   },
-  'pricing.starter.title': {
-    en: 'Starter',
-    es: 'Inicial'
+  "pricing.starter.title": {
+    en: "Starter",
+    fi: "Aloituspaketti",
   },
-  'pricing.starter.price': {
-    en: '$499',
-    es: '€499'
+  "pricing.starter.price": {
+    en: "$499",
+    fi: "499€",
   },
-  'pricing.starter.description': {
-    en: 'Perfect for small projects',
-    es: 'Perfecto para proyectos pequeños'
+  "pricing.starter.description": {
+    en: "Perfect for small projects",
+    fi: "Täydellinen pienille projekteille",
   },
-  'pricing.optimal.title': {
-    en: 'Optimal',
-    es: 'Óptimo'
+  "pricing.optimal.title": {
+    en: "Optimal",
+    fi: "Optimaalinen",
   },
-  'pricing.optimal.price': {
-    en: '$999',
-    es: '€999'
+  "pricing.optimal.price": {
+    en: "$999",
+    fi: "999€",
   },
-  'pricing.optimal.description': {
-    en: 'Best value for most projects',
-    es: 'La mejor opción para la mayoría de proyectos'
+  "pricing.optimal.description": {
+    en: "Best value for most projects",
+    fi: "Paras vastine useimmille projekteille",
   },
-  'pricing.business.title': {
-    en: 'Business',
-    es: 'Empresarial'
+  "pricing.business.title": {
+    en: "Business",
+    fi: "Yritys",
   },
-  'pricing.business.price': {
-    en: '$1999',
-    es: '€1999'
+  "pricing.business.price": {
+    en: "$1999",
+    fi: "1999€",
   },
-  'pricing.business.description': {
-    en: 'For complex business solutions',
-    es: 'Para soluciones empresariales complejas'
+  "pricing.business.description": {
+    en: "For complex business solutions",
+    fi: "Monimutkaisiin yritysratkaisuihin",
   },
-  'pricing.contact': {
-    en: 'Contact',
-    es: 'Contactar'
+  "pricing.contact": {
+    en: "Contact",
+    fi: "Ota yhteyttä",
   },
-  
+
   // Footer
-  'footer.connect': {
-    en: 'Connect with me',
-    es: 'Conecta conmigo'
+  "footer.connect": {
+    en: "Connect with me",
+    fi: "Ota yhteyttä",
   },
-  'footer.copyright': {
-    en: 'All rights reserved',
-    es: 'Todos los derechos reservados'
+  "footer.copyright": {
+    en: "All rights reserved",
+    fi: "Kaikki oikeudet pidätetään",
   },
-  'footer.made': {
-    en: 'Made with ❤️ by Boriss',
-    es: 'Hecho con ❤️ por Boriss'
-  }
+  "footer.made": {
+    en: "Made with ❤️ by Boriss",
+    fi: "Tehnyt ❤️ Boriss",
+  },
 };
 
 type LanguageContextType = {
@@ -228,10 +227,12 @@ type LanguageContextType = {
   t: (key: string) => string;
 };
 
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+export const LanguageContext = createContext<LanguageContextType | undefined>(
+  undefined
+);
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [language, setLanguage] = useState<Language>('en');
+  const [language, setLanguage] = useState<Language>("en");
 
   const t = (key: string) => {
     if (!translations[key]) {
@@ -246,12 +247,4 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
       {children}
     </LanguageContext.Provider>
   );
-};
-
-export const useLanguage = () => {
-  const context = useContext(LanguageContext);
-  if (context === undefined) {
-    throw new Error('useLanguage must be used within a LanguageProvider');
-  }
-  return context;
 };
