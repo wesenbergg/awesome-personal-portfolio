@@ -131,29 +131,29 @@ const translations: Translations = {
     en: "My professional journey",
     fi: "Ammatillinen matkani",
   },
-  "experience.abb.title": {
+  "experience.novatron.title": {
     en: "Software Developer",
     fi: "Ohjelmistokehittäjä",
   },
-  "experience.abb.company": {
-    en: "ABB",
-    fi: "ABB",
+  "experience.novatron.company": {
+    en: "NOVATRON",
+    fi: "NOVATRON",
   },
-  "experience.okrla.title": {
+  "experience.buutti.title": {
+    en: "IT consultant",
+    fi: "IT-konsultti",
+  },
+  "experience.buutti.company": {
+    en: "Buutti",
+    fi: "Buutti",
+  },
+  "experience.solteq.title": {
     en: "Frontend Developer",
-    fi: "Frontend-kehittäjä",
+    fi: "Front end -kehittäjä",
   },
-  "experience.okrla.company": {
-    en: "Okrla",
-    fi: "Okrla",
-  },
-  "experience.telia.title": {
-    en: "Full Stack Developer",
-    fi: "Full Stack -kehittäjä",
-  },
-  "experience.telia.company": {
-    en: "Telia",
-    fi: "Telia",
+  "experience.solteq.company": {
+    en: "Solteq",
+    fi: "Solteq",
   },
 
   // Pricing
@@ -250,12 +250,12 @@ const translations: Translations = {
     fi: "Ota yhteyttä",
   },
   "footer.copyright": {
-    en: "All rights reserved",
+    en: "AI rights reserved",
     fi: "Kaikki oikeudet pidätetään",
   },
   "footer.made": {
-    en: "Made with ❤️ by Boriss",
-    fi: "Tehnyt ❤️ Boriss",
+    en: "Pair coded with ❤️ by AI",
+    fi: "Tehnyt ❤️ Boriss & AI",
   },
 };
 

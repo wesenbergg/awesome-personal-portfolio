@@ -9,28 +9,28 @@ export function Experience() {
 
   const experiences = [
     {
-      title: "experience.abb.title",
-      company: "experience.abb.company",
+      title: "experience.novatron.title",
+      company: "experience.novatron.company",
       period: "2023 - Present",
       description:
         "Developed enterprise software solutions for industrial automation systems. Led a team of developers to create scalable applications.",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/0/00/ABB_logo.svg",
+      logo: "https://placehold.co/200x200/e9e9e9/808080?text=Novatron",
     },
     {
-      title: "experience.okrla.title",
-      company: "experience.okrla.company",
+      title: "experience.buutti.title",
+      company: "experience.buutti.company",
       period: "2022 - 2023",
       description:
         "Built responsive user interfaces and implemented modern frontend patterns. Worked closely with designers to create pixel-perfect UIs.",
-      logo: "https://placehold.co/200x200/e9e9e9/808080?text=Okrla",
+      logo: "https://placehold.co/200x200/e9e9e9/808080?text=Buutti",
     },
     {
-      title: "experience.telia.title",
-      company: "experience.telia.company",
+      title: "experience.solteq.title",
+      company: "experience.solteq.company",
       period: "2021 - 2022",
       description:
         "Developed full-stack applications using React, Node.js and AWS. Implemented CI/CD pipelines and automated testing frameworks.",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Telia_Company_Logo.svg",
+      logo: "https://placehold.co/200x200/e9e9e9/808080?text=Solteq",
     },
   ];
 
