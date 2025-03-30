@@ -4,7 +4,6 @@ import { useLanguage } from "@/context/useLanguage";
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
 import "@/styles/card-effects.css";
-import "@/styles/cursor-effects.css";
 
 interface ProjectCardProps {
   title: string;
@@ -38,9 +37,7 @@ export function ProjectCard({
       style={{
         ...tiltBindings.style,
         animationDelay: `${index * 150}ms`,
-        cursor: "none",
       }}
-      data-cursor-hover="true"
     >
       {/* 3D Shadow Effect */}
       <div className="card-3d-shadow"></div>
@@ -53,37 +50,23 @@ export function ProjectCard({
         src={image}
         alt={t(title)}
         className="w-full h-64 object-cover transition-transform group-hover:scale-105"
-        style={{ cursor: "none" }}
       />
 
       {/* Light reflection effect */}
       <div className="card-shine"></div>
 
       {/* Icon */}
-      <div
-        className="absolute top-4 left-4 bg-background/90 backdrop-blur-md p-3 rounded-xl z-20 z-depth-40"
-        data-cursor-hover="true"
-        style={{ cursor: "none" }}
-      >
+      <div className="absolute top-4 left-4 bg-background/90 backdrop-blur-md p-3 rounded-xl z-20 z-depth-40">
         {icon}
       </div>
 
       {/* Content */}
-      <div
-        className="absolute bottom-0 left-0 right-0 p-6 z-20 card-3d-content"
-        style={{ cursor: "none" }}
-      >
+      <div className="absolute bottom-0 left-0 right-0 p-6 z-20 card-3d-content">
         <h3 className="text-xl font-bold text-white mb-2 z-depth-30">
           {t(title)}
         </h3>
         <p className="text-white/80 mb-4 z-depth-20">{t(description)}</p>
-        <Button
-          variant="secondary"
-          size="sm"
-          className="gap-1.5 z-depth-50"
-          data-cursor-hover="true"
-          style={{ cursor: "none" }}
-        >
+        <Button variant="secondary" size="sm" className="gap-1.5 z-depth-50">
           {t("projects.view")}
           <ExternalLink className="h-4 w-4" />
         </Button>
