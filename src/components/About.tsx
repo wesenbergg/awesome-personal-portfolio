@@ -51,13 +51,11 @@ export function About() {
             <div className="aspect-square rounded-2xl overflow-hidden relative backdrop-blur-sm border border-border/50 shadow-xl animate-scale-in">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent"></div>
               <img
-                src="https://images.unsplash.com/photo-1544256718-3bcf237f3974?q=80&w=2071&auto=format&fit=crop"
+                src="/images/setup.webp"
                 alt="About Boriss"
                 className="absolute inset-0 w-full h-full object-cover"
               />
             </div>
-            <div className="absolute -bottom-6 -right-6 h-24 w-24 rounded-full bg-primary/10 backdrop-blur-xl animate-pulse"></div>
-            <div className="absolute -top-6 -left-6 h-24 w-24 rounded-full bg-primary/10 backdrop-blur-xl animate-pulse delay-500"></div>
           </div>
         </div>
       </div>

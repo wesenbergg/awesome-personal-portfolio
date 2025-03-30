@@ -46,8 +46,8 @@ const translations: Translations = {
     fi: "Ohjelmistokehittäjä",
   },
   "hero.location": {
-    en: "Based in Berlin",
-    fi: "Berliinissä",
+    en: "Based in Helsinki",
+    fi: "Helsinki",
   },
   "hero.cta": {
     en: "Get in touch",
@@ -68,8 +68,8 @@ const translations: Translations = {
     fi: "Tutustu minuun paremmin",
   },
   "about.description": {
-    en: "I am a friendly Software Developer from Finland, currently based in Berlin. For 2025, I made a New Year's resolution to code every day.",
-    fi: "Olen ystävällinen ohjelmistokehittäjä Suomesta, tällä hetkellä asun Berliinissä. Vuodelle 2025 tein uudenvuodenlupauksen koodata joka päivä.",
+    en: "I am a friendly Software Developer from Finland, currently based in Helsinki. For 2025, I made a New Year's resolution to code every day.",
+    fi: "Olen ystävällinen ohjelmistokehittäjä Suomesta, tällä hetkellä asun Helsingissä. Vuodelle 2025 tein uudenvuodenlupauksen koodata joka päivä.",
   },
   "about.fact1": {
     en: "Passionate to discover and learn new tech.",

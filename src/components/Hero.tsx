@@ -36,12 +36,19 @@ export function Hero() {
             </p>
 
             <div className="flex flex-wrap gap-4">
-              <Button size="lg" className="rounded-full group">
-                {t("hero.cta")}
-                <ChevronRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              <Button asChild size="lg" className="rounded-full group">
+                <a href="#contact">
+                  {t("hero.cta")}
+                  <ChevronRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </a>
               </Button>
-              <Button variant="outline" size="lg" className="rounded-full">
-                {t("hero.secondary")}
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="rounded-full"
+              >
+                <a href="#projects">{t("hero.secondary")}</a>
               </Button>
             </div>
 
@@ -82,7 +89,7 @@ export function Hero() {
               <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-56 h-56 rounded-full bg-gradient-to-br from-primary/10 to-secondary/10 animate-pulse blur-2xl"></div>
               <div className="relative h-full w-full animate-blur-in">
                 <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=687&auto=format&fit=crop"
+                  src="/images/profile.webp"
                   alt="Boriss"
                   className="rounded-3xl object-cover w-full h-full shadow-2xl"
                 />
