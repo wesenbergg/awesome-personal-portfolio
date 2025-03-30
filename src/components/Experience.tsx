@@ -94,13 +94,19 @@ export function Experience() {
                 }`}
               >
                 <div className="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-5 h-5 rounded-full border-4 border-primary bg-background z-10" />
-                <div className="space-y-2">
+                <div
+                  className="space-y-2"
+                  style={index % 2 === 1 ? { textAlign: "left" } : {}}
+                >
                   <div className="inline-flex items-center bg-primary/10 rounded-full py-1 px-3 text-sm">
                     <Calendar className="mr-1.5 h-3.5 w-3.5" />
                     <span>{exp.period}</span>
                   </div>
                   <h3 className="text-xl font-bold">{t(exp.title)}</h3>
-                  <div className="flex items-center gap-2 md:justify-end">
+                  <div
+                    className="flex items-center gap-2 md:justify-end"
+                    style={index % 2 === 1 ? { float: "inline-start" } : {}}
+                  >
                     <img
                       src={exp.logo}
                       alt={t(exp.company)}
