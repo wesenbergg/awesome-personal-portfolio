@@ -171,10 +171,13 @@ export function Navbar() {
                       navLinks.findIndex(
                         (link) => link.href.substring(1) === activeSection
                       ) *
-                        44 +
-                      4, // 44px per item + 4px padding
+                        48 +
+                      8,
                     opacity: activeSection ? 1 : 0,
-                    height: activeSection ? "40px" : "0px",
+                    height: activeSection ? "36px" : "0px",
+                    position: "absolute",
+                    transform: "translateY(0)",
+                    zIndex: -1,
                   }}
                 />
                 {navLinks.map((link, index) => {
@@ -184,7 +187,7 @@ export function Navbar() {
                   return (
                     <li
                       key={link.href}
-                      className="animate-slide-up"
+                      className="animate-slide-up relative"
                       style={{ animationDelay: `${index * 75}ms` }}
                     >
                       <a
