@@ -1,0 +1,41 @@
+/* Cursor Effects CSS */
+
+.circular-cursor {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  border-radius: 50%;
+  will-change: transform, opacity;
+  mix-blend-mode: normal;
+  filter: blur(0px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background-clip: padding-box;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  background-color: rgba(128, 128, 128, 0.7);
+  backdrop-filter: blur(0);
+  transition: all 150ms ease-out;
+}
+
+/* Scale the cursor on active/clicked state for feedback */
+.circular-cursor.active {
+  transform: scale(0.8) !important;
+  background-color: rgba(160, 160, 160, 0.8);
+}
+
+/* Handle hover states for interactive elements */
+[data-cursor-hover="true"] {
+  cursor: none !important;
+}
+
+/* Add a global class for cursor:none */
+.cursor-none,
+.cursor-none * {
+  cursor: none !important;
+}
+
+/* For touch devices, hide the custom cursor */
+@media (hover: none) and (pointer: coarse) {
+  .circular-cursor {
+    display: none;
+  }
+}
