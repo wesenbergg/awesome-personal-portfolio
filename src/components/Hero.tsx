@@ -47,7 +47,7 @@ export function Hero() {
 
             <div className="flex items-center space-x-4 pt-4">
               <a
-                href="https://linkedin.com"
+                href="https://linkedin.com/in/wesenbergg"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-full bg-background border border-border hover:bg-secondary transition-colors"
@@ -56,7 +56,7 @@ export function Hero() {
                 <Linkedin className="h-5 w-5" />
               </a>
               <a
-                href="https://github.com"
+                href="https://github.com/wesenbergg"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-full bg-background border border-border hover:bg-secondary transition-colors"
@@ -65,7 +65,7 @@ export function Hero() {
                 <Github className="h-5 w-5" />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://instagram.com/wesenbergg"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-full bg-background border border-border hover:bg-secondary transition-colors"

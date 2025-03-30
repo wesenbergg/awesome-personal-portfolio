@@ -1,5 +1,5 @@
 import { useLanguage } from "@/context/useLanguage";
-import { ExternalLink, Palette, Clock, Layout } from "lucide-react";
+import { Palette, Clock, Layout } from "lucide-react";
 import { ProjectCard } from "@/components/ProjectCard";
 
 export function Projects() {
