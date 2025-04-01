@@ -57,6 +57,10 @@ const translations: Translations = {
     en: "View work",
     fi: "Katso töitäni",
   },
+  "hero.resolution": {
+    en: "I made a New Year's resolution for 2025 to code every day. Follow my journey as I build products that solve real problems.",
+    fi: "Tein uudenvuodenlupauksen vuodelle 2025 koodata joka päivä. Seuraa matkaani kun rakennan tuotteita, jotka ratkaisevat todellisia ongelmia.",
+  },
 
   // About
   "about.title": {
@@ -154,6 +158,18 @@ const translations: Translations = {
   "experience.solteq.company": {
     en: "Solteq",
     fi: "Solteq",
+  },
+  "experience.novatron.description": {
+    en: "Developed enterprise software solutions for industrial automation systems. Led a team of developers to create scalable applications.",
+    fi: "Kehitin yritysohjelmistoratkaisuja teollisuusautomaatiojärjestelmiin. Johdin kehittäjätiimiä skaalautuvien sovellusten luomisessa.",
+  },
+  "experience.buutti.description": {
+    en: "Built responsive user interfaces and implemented modern frontend patterns. Worked closely with designers to create pixel-perfect UIs.",
+    fi: "Rakensin responsiivisia käyttöliittymiä ja toteutin moderneja frontend-malleja. Työskentelin tiiviisti suunnittelijoiden kanssa luodakseni pikselintarkkoja käyttöliittymiä.",
+  },
+  "experience.solteq.description": {
+    en: "Developed full-stack applications using React, Node.js and AWS. Implemented CI/CD pipelines and automated testing frameworks.",
+    fi: "Kehitin full-stack-sovelluksia käyttäen React-, Node.js- ja AWS-teknologioita. Toteutin CI/CD-putkia ja automatisoituja testausympäristöjä.",
   },
 
   // Pricing

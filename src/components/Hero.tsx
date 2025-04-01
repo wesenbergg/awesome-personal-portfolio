@@ -31,8 +31,7 @@ export function Hero() {
             </h1>
 
             <p className="text-muted-foreground text-lg max-w-md">
-              I made a New Year's resolution for 2025 to code every day. Follow
-              my journey as I build products that solve real problems.
+              {t("hero.resolution")}
             </p>
 
             <div className="flex flex-wrap gap-4">

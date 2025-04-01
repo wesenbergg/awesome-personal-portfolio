@@ -12,24 +12,21 @@ export function Experience() {
       title: "experience.novatron.title",
       company: "experience.novatron.company",
       period: "2023 - Present",
-      description:
-        "Developed enterprise software solutions for industrial automation systems. Led a team of developers to create scalable applications.",
+      description: "experience.novatron.description",
       logo: "https://placehold.co/200x200/e9e9e9/808080?text=Novatron",
     },
     {
       title: "experience.buutti.title",
       company: "experience.buutti.company",
       period: "2022 - 2023",
-      description:
-        "Built responsive user interfaces and implemented modern frontend patterns. Worked closely with designers to create pixel-perfect UIs.",
+      description: "experience.buutti.description",
       logo: "https://placehold.co/200x200/e9e9e9/808080?text=Buutti",
     },
     {
       title: "experience.solteq.title",
       company: "experience.solteq.company",
       period: "2021 - 2022",
-      description:
-        "Developed full-stack applications using React, Node.js and AWS. Implemented CI/CD pipelines and automated testing frameworks.",
+      description: "experience.solteq.description",
       logo: "https://placehold.co/200x200/e9e9e9/808080?text=Solteq",
     },
   ];
@@ -123,7 +120,7 @@ export function Experience() {
                 }`}
               >
                 <div className="bg-card rounded-xl p-6 border shadow-sm hover:shadow-md transition-shadow">
-                  <p>{exp.description}</p>
+                  <p>{t(exp.description)}</p>
                 </div>
               </div>
             </div>
