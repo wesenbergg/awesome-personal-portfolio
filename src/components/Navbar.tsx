@@ -118,7 +118,7 @@ export function Navbar() {
                       href={link.href}
                       ref={(el) => (navItemsRef.current[sectionId] = el)}
                       onClick={(e) => handleNavClick(e, link.href)}
-                      className={`px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 border border-transparent hover:border-border/50 backdrop-blur-sm block ${
+                      className={`px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 border border-transparent hover:border-border/50 block ${
                         isActive
                           ? "text-primary font-semibold"
                           : "hover:bg-background/80 hover:shadow-sm"
