@@ -12,6 +12,7 @@ export function Projects() {
       image:
         "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=2070&auto=format&fit=crop",
       icon: <Layout className="h-10 w-10 text-blue-500" />,
+      link: "https://www.uiux.fi",
     },
     {
       title: "projects.gradient.title",
@@ -19,6 +20,7 @@ export function Projects() {
       image:
         "https://images.unsplash.com/photo-1550859492-d5da9d8e45f3?q=80&w=2070&auto=format&fit=crop",
       icon: <Palette className="h-10 w-10 text-purple-500" />,
+      link: "https://gradiendo.uiux.fi",
     },
     {
       title: "projects.chess.title",
@@ -26,6 +28,7 @@ export function Projects() {
       image:
         "https://images.unsplash.com/photo-1580541832626-2a7131ee809f?q=80&w=2071&auto=format&fit=crop",
       icon: <Clock className="h-10 w-10 text-green-500" />,
+      link: "https://chess.uiux.fi",
     },
   ];
 
@@ -47,6 +50,7 @@ export function Projects() {
               description={project.description}
               image={project.image}
               icon={project.icon}
+              link={project.link}
               index={index}
             />
           ))}

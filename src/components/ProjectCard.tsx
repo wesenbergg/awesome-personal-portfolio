@@ -5,13 +5,14 @@ import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
 import "@/styles/card-effects.css";
 
-interface ProjectCardProps {
+type ProjectCardProps = {
   title: string;
   description: string;
   image: string;
   icon: ReactNode;
   index: number;
-}
+  link: string;
+};
 
 export function ProjectCard({
   title,
@@ -19,6 +20,7 @@ export function ProjectCard({
   image,
   icon,
   index,
+  link,
 }: ProjectCardProps) {
   const { t } = useLanguage();
 
@@ -61,7 +63,10 @@ export function ProjectCard({
       </div>
 
       {/* Content */}
-      <div className="absolute bottom-0 left-0 right-0 p-6 z-20 card-3d-content">
+      <a
+        href={link}
+        className="absolute bottom-0 left-0 right-0 p-6 z-20 card-3d-content"
+      >
         <h3 className="text-xl font-bold text-white mb-2 z-depth-30">
           {t(title)}
         </h3>
@@ -70,7 +75,7 @@ export function ProjectCard({
           {t("projects.view")}
           <ExternalLink className="h-4 w-4" />
         </Button>
-      </div>
+      </a>
     </div>
   );
 }
