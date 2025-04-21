@@ -277,10 +277,6 @@ const translations: Translations = {
     en: "AI rights reserved",
     fi: "Kaikki oikeudet pidätetään",
   },
-  "footer.made": {
-    en: "Pair coded with ❤️ by AI",
-    fi: "Tehnyt ❤️ Boriss & AI",
-  },
   "footer.githubStats": {
     en: "GitHub Stats",
     fi: "GitHub Tilastot",

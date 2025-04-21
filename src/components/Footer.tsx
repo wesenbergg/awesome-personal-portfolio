@@ -158,8 +158,6 @@ export function Footer() {
                 }
               </div>
             </div>
-
-            <p className="text-muted-foreground">{t("footer.made")}</p>
           </div>
         </div>
 
