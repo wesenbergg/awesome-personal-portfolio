@@ -273,6 +273,18 @@ const translations: Translations = {
     en: "Pair coded with ❤️ by AI",
     fi: "Tehnyt ❤️ Boriss & AI",
   },
+  "footer.githubStats": {
+    en: "GitHub Stats",
+    fi: "GitHub Tilastot",
+  },
+  "footer.stars": {
+    en: "stars",
+    fi: "tähteä",
+  },
+  "footer.forks": {
+    en: "forks",
+    fi: "haarautumaa",
+  },
 };
 
 type LanguageContextType = {

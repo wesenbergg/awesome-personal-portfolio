@@ -1,9 +1,23 @@
 import { useLanguage } from "@/context/useLanguage";
-import { Github, Linkedin, Instagram, Mail, MapPin } from "lucide-react";
+import {
+  Github,
+  Linkedin,
+  Instagram,
+  Mail,
+  MapPin,
+  Star,
+  GitFork,
+  Loader2,
+} from "lucide-react";
+import { useGitHubStats } from "@/hooks/useGitHubStats";
 
 export function Footer() {
   const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
+  const { stars, forks, loading } = useGitHubStats(
+    "wesenbergg",
+    "awesome-personal-portfolio"
+  );
 
   return (
     <footer className="bg-background/50 border-t">
@@ -102,6 +116,49 @@ export function Footer() {
                 <Instagram className="h-5 w-5" />
               </a>
             </div>
+
+            <div className="mt-4 space-y-2">
+              <h5 className="text-sm font-medium">{t("footer.githubStats")}</h5>
+              <div className="flex items-center space-x-4">
+                {
+                  <>
+                    <a
+                      href="https://github.com/wesenbergg/awesome-personal-portfolio"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      <Star className="h-4 w-4 mr-1.5" />
+                      <span>
+                        {loading ? (
+                          <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                        ) : (
+                          stars
+                        )}{" "}
+                        {t("footer.stars")}
+                      </span>
+                    </a>
+                    <a
+                      href="https://github.com/wesenbergg/awesome-personal-portfolio/fork"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      <GitFork className="h-4 w-4 mr-1.5" />
+                      <span>
+                        {loading ? (
+                          <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                        ) : (
+                          forks
+                        )}{" "}
+                        {t("footer.forks")}
+                      </span>
+                    </a>
+                  </>
+                }
+              </div>
+            </div>
+
             <p className="text-muted-foreground">{t("footer.made")}</p>
           </div>
         </div>
