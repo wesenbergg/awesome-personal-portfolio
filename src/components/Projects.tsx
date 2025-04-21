@@ -1,9 +1,42 @@
 import { useLanguage } from "@/context/useLanguage";
 import { Palette, Clock, Layout, Library } from "lucide-react";
 import { ProjectCard } from "@/components/ProjectCard";
+import { useState, useEffect, useRef } from "react";
 
 export function Projects() {
   const { t } = useLanguage();
+  const [activeIndex, setActiveIndex] = useState(0);
+  const carouselRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!carouselRef.current) return;
+
+      const scrollPosition = carouselRef.current.scrollLeft;
+      const itemWidth = carouselRef.current.offsetWidth * 0.85; // Based on min-w-[85%]
+      const newActiveIndex = Math.round(scrollPosition / itemWidth);
+
+      if (newActiveIndex !== activeIndex) {
+        setActiveIndex(newActiveIndex);
+      }
+    };
+
+    const carousel = carouselRef.current;
+    if (carousel) {
+      carousel.addEventListener("scroll", handleScroll);
+      return () => carousel.removeEventListener("scroll", handleScroll);
+    }
+  }, [activeIndex]);
+
+  const scrollToProject = (index: number) => {
+    if (!carouselRef.current) return;
+
+    const itemWidth = carouselRef.current.offsetWidth * 0.85;
+    carouselRef.current.scrollTo({
+      left: index * itemWidth,
+      behavior: "smooth",
+    });
+  };
 
   const projects = [
     {
@@ -50,7 +83,7 @@ export function Projects() {
           <p className="text-muted-foreground">{t("projects.subtitle")}</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8 hidden">
           {projects.map((project, index) => (
             <ProjectCard
               key={project.title}
@@ -62,6 +95,49 @@ export function Projects() {
               index={index}
             />
           ))}
+        </div>
+
+        <div className="md:hidden">
+          <div
+            ref={carouselRef}
+            className="overflow-x-auto pb-6 -mx-4 px-4 flex gap-4 snap-x snap-mandatory scrollbar-hide"
+          >
+            {projects.map((project, index) => (
+              <div
+                key={project.title}
+                id={`project-${index}`}
+                className="snap-start min-w-[85%] flex-shrink-0"
+              >
+                <ProjectCard
+                  title={project.title}
+                  description={project.description}
+                  image={project.image}
+                  icon={project.icon}
+                  link={project.link}
+                  index={index}
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Ball indicators for mobile */}
+          <div className="flex justify-center gap-2 mt-4 mb-6">
+            {projects.map((_, index) => (
+              <a
+                key={`indicator-${index}`}
+                href={`#project-${index}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToProject(index);
+                  setActiveIndex(index);
+                }}
+                className={`h-2 w-2 rounded-full transition-colors duration-300 ${
+                  index === activeIndex ? "bg-white" : "bg-gray-400/50"
+                }`}
+                aria-label={`Go to project ${index + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>

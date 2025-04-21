@@ -112,6 +112,15 @@
   .dark .nav-indicator {
     @apply from-primary/20 to-primary/10 shadow-[0_0_15px_rgba(255,255,255,0.05)];
   }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 /* Staggered animation delays */

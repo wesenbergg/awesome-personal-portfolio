@@ -4,6 +4,7 @@ import { useLanguage } from "@/context/useLanguage";
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
 import "@/styles/card-effects.css";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 type ProjectCardProps = {
   title: string;
@@ -23,14 +24,23 @@ export function ProjectCard({
   link,
 }: ProjectCardProps) {
   const { t } = useLanguage();
-
+  const isMobile = useIsMobile();
   // Use our custom tilt hook with some options
-  const tiltBindings = useCardTilt({
-    max: 15,
-    scale: 1.05,
-    speed: 450,
-    perspective: 1200,
-  });
+  const tiltBindings = useCardTilt(
+    isMobile
+      ? {
+          max: 0,
+          scale: 1,
+          speed: 0,
+          perspective: 1000,
+        }
+      : {
+          max: 15,
+          scale: 1.05,
+          speed: 450,
+          perspective: 1200,
+        }
+  );
 
   return (
     <div
@@ -72,7 +82,9 @@ export function ProjectCard({
         <h3 className="text-xl font-bold text-white mb-2 z-depth-30">
           {t(title)}
         </h3>
-        <p className="text-white/80 mb-4 z-depth-20">{t(description)}</p>
+        <p className="text-white/80 mb-4 z-depth-20 h-[2em] text-ellipsis">
+          {t(description)}
+        </p>
         <Button variant="secondary" size="sm" className="gap-1.5 z-depth-50">
           {t("projects.view")}
           <ExternalLink className="h-4 w-4" />
