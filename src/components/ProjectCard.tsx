@@ -41,6 +41,8 @@ export function ProjectCard({
         animationDelay: `${index * 150}ms`,
       }}
     >
+      <div className="backdrop-blur-sm absolute inset-0"></div>
+
       {/* 3D Shadow Effect */}
       <div className="card-3d-shadow"></div>
 
@@ -58,14 +60,14 @@ export function ProjectCard({
       <div className="card-shine"></div>
 
       {/* Icon */}
-      <div className="absolute top-4 left-4 bg-background/90 backdrop-blur-md p-3 rounded-xl z-20 z-depth-40">
+      <div className="mix-blend-luminosity absolute top-4 left-4 bg-background/90 backdrop-blur-md p-3 rounded-xl z-20 z-depth-40">
         {icon}
       </div>
 
       {/* Content */}
       <a
         href={link}
-        className="absolute bottom-0 left-0 right-0 p-6 z-20 card-3d-content"
+        className="mix-blend-luminosity absolute bottom-0 left-0 right-0 p-6 z-20 card-3d-content"
       >
         <h3 className="text-xl font-bold text-white mb-2 z-depth-30">
           {t(title)}
