@@ -121,6 +121,14 @@ const translations: Translations = {
     en: "A digital chess clock for tournament play.",
     fi: "Digitaalinen shakkikello turnauspelaamiseen.",
   },
+  "projects.utility.title": {
+    en: "Utility Collection",
+    fi: "Apuvälinekokoelma",
+  },
+  "projects.utility.description": {
+    en: "A collection of utility functions you can copy and paste directly into your projects.",
+    fi: "Kokoelma apufunktioita, joita voit kopioida ja liittää suoraan projekteihisi.",
+  },
   "projects.view": {
     en: "View Project",
     fi: "Katso projekti",
