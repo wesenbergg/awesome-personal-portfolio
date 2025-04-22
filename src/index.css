@@ -65,7 +65,7 @@
     font-feature-settings: "ss01", "ss02", "cv01", "cv02";
   }
 
-  section {
+  main > section {
     @apply py-16 md:py-28;
   }
 

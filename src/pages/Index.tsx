@@ -9,7 +9,7 @@ import { Navbar } from "@/components/Navbar";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen flex-col">
+    <main className="flex min-h-screen flex-col">
       <Navbar />
       <Hero />
       <About />
@@ -18,7 +18,7 @@ const Index = () => {
       <Pricing />
       <Contact />
       <Footer />
-    </div>
+    </main>
   );
 };
 
