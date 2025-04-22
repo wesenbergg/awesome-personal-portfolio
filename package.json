@@ -1,8 +1,19 @@
 {
-  "name": "vite_react_shadcn_ts",
+  "name": "awesome-personal-portfolio",
+  "description": "Awesome Personal Portfolio",
+  "keywords": [
+    "personal",
+    "portfolio",
+    "awesome",
+    "personal-portfolio",
+    "personal-website"
+  ],
+  "homepage": "https://boriss.uiux.fi",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "author": "Boriss Jerjomkin",
+  "license": "SEE LICENSE IN LICENSE",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
