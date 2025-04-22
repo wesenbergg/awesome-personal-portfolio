@@ -1,69 +1,90 @@
-# Welcome to your Lovable project
+# Boriss Jerjomkin - Portfolio
 
-## Project info
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen)](https://boriss.uiux.fi)
 
-**URL**: https://lovable.dev/projects/4f227dc0-47b6-4ab5-9160-e3e2056459a5
+A modern, responsive portfolio website built with React, TypeScript, and Tailwind CSS.
 
-## How can I edit this code?
+## 🚀 Features
 
-There are several ways of editing your application.
+- **Responsive Design** - Looks great on all devices
+- **Dark/Light Mode** - Toggle between themes with a single click
+- **Bilingual** - Available in both English and Finnish
+- **Modern UI** - Built with shadcn/ui components
+- **Performance Optimized** - Fast loading and rendering
 
-**Use Lovable**
+## 💻 Technologies
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/4f227dc0-47b6-4ab5-9160-e3e2056459a5) and start prompting.
+- **React** - UI library
+- **TypeScript** - Type safety
+- **Tailwind CSS** - Styling
+- **shadcn/ui** - UI component library
+- **Vite** - Build tool
+- **React Router** - Navigation
+- **React Hook Form** - Form handling
+- **Zod** - Validation
+- **Internationalization** - Multi-language support
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🏗️ Project Structure
 
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```
+src/
+├── components/     # UI components
+├── context/        # React contexts (Language, Theme)
+├── hooks/          # Custom React hooks
+├── lib/            # Utility functions
+├── pages/          # Page components
+└── styles/         # CSS and Tailwind styles
 ```
 
-**Edit a file directly in GitHub**
+## 🛠️ Development
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Prerequisites
 
-**Use GitHub Codespaces**
+- Node.js (v18+)
+- pnpm
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Installation
 
-## What technologies are used for this project?
+```sh
+# Clone the repository
+git clone https://github.com/wesenbergg/awesome-personal-portfolio.git
 
-This project is built with .
+# Navigate to the project directory
+cd boriss-portfolio-palace
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+# Install dependencies
+npm install
+# or
+pnpm install
 
-## How can I deploy this project?
+# Start the development server
+npm run dev
+# or
+pnpm dev
+```
 
-Simply open [Lovable](https://lovable.dev/projects/4f227dc0-47b6-4ab5-9160-e3e2056459a5) and click on Share -> Publish.
+The application will be available at `http://localhost:8080`
 
-## I want to use a custom domain - is that possible?
+### Build
 
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+```sh
+npm run build
+# or
+pnpm build
+```
+
+## 📝 Coding Standards
+
+- **TypeScript** for all new files
+- **Functional components** with hooks
+- **i18n** using the `t()` function from `useLanguage` hook
+- **Tailwind CSS** for styling
+
+## 📱 Contact
+
+- Website: [boriss.uiux.fi](https://boriss.uiux.fi)
+- GitHub: [wesenbergg](https://github.com/wesenbergg)
+
+## 📄 License
+
+See the [LICENSE](LICENSE) file for details.
