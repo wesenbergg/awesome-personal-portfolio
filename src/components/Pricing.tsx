@@ -1,9 +1,12 @@
 import { useLanguage } from "@/context/useLanguage";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
+import { useState } from "react";
+import { cn } from "@/lib/utils";
 
 export function Pricing() {
   const { t } = useLanguage();
+  const [activeTab, setActiveTab] = useState(0);
 
   const plans = [
     {
@@ -55,7 +58,26 @@ export function Pricing() {
           <p className="text-muted-foreground">{t("pricing.subtitle")}</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Mobile Tabs */}
+        <div className="flex md:hidden mb-6 overflow-x-auto scrollbar-hide">
+          {plans.map((plan, index) => (
+            <button
+              key={plan.title}
+              onClick={() => setActiveTab(index)}
+              className={cn(
+                "px-4 py-2 text-sm font-medium whitespace-nowrap border-b-2 transition-colors",
+                activeTab === index
+                  ? "border-primary text-primary"
+                  : "border-transparent text-muted-foreground hover:text-foreground"
+              )}
+            >
+              {t(plan.title)}
+            </button>
+          ))}
+        </div>
+
+        {/* Desktop Grid */}
+        <div className="hidden md:grid md:grid-cols-3 gap-8">
           {plans.map((plan, index) => (
             <div
               key={plan.title}
@@ -97,6 +119,53 @@ export function Pricing() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Mobile Scrollable Cards */}
+        <div className="md:hidden overflow-x-auto scrollbar-hide -mx-4 px-4">
+          <div className="flex gap-4 w-max">
+            {plans.map((plan, index) => (
+              <div
+                key={plan.title}
+                className={cn(
+                  "w-[280px] bg-card border rounded-2xl overflow-hidden shadow-sm transition-all",
+                  activeTab === index ? "opacity-100" : "opacity-0 hidden"
+                )}
+              >
+                {plan.popular && (
+                  <div className="absolute top-0 right-0 bg-primary text-primary-foreground py-1 px-3 text-xs font-medium rounded-bl-lg">
+                    Popular
+                  </div>
+                )}
+
+                <div className="p-6 space-y-4">
+                  <h3 className="text-xl font-bold">{t(plan.title)}</h3>
+                  <div className="space-y-1">
+                    <div className="text-3xl font-bold">{t(plan.price)}</div>
+                    <p className="text-muted-foreground">
+                      {t(plan.description)}
+                    </p>
+                  </div>
+
+                  <ul className="space-y-3 py-4">
+                    {plan.features.map((feature, i) => (
+                      <li key={i} className="flex items-start">
+                        <Check className="h-5 w-5 mr-2 text-green-500 shrink-0" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <Button
+                    className="w-full"
+                    variant={plan.popular ? "default" : "outline"}
+                  >
+                    {t("pricing.contact")}
+                  </Button>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
