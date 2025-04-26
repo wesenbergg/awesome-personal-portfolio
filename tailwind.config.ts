@@ -1,5 +1,5 @@
-
 import type { Config } from "tailwindcss";
+import tailwindAnimate from "tailwindcss-animate";
 
 export default {
 	darkMode: ["class"],
@@ -96,6 +96,32 @@ export default {
 					'0%': { filter: 'blur(8px)', opacity: '0' },
 					'100%': { filter: 'blur(0)', opacity: '1' }
 				},
+				'pulse-slow': {
+					'0%': { opacity: '0.5' },
+					'50%': { opacity: '0.8' },
+					'100%': { opacity: '0.5' }
+				},
+				'orbit-right': {
+					'0%': { transform: 'translateX(0) translateY(0)' },
+					'25%': { transform: 'translateX(10px) translateY(10px)' },
+					'50%': { transform: 'translateX(0) translateY(20px)' },
+					'75%': { transform: 'translateX(-10px) translateY(10px)' },
+					'100%': { transform: 'translateX(0) translateY(0)' }
+				},
+				'orbit-left': {
+					'0%': { transform: 'translateX(0) translateY(0)' },
+					'25%': { transform: 'translateX(-10px) translateY(10px)' },
+					'50%': { transform: 'translateX(0) translateY(20px)' },
+					'75%': { transform: 'translateX(10px) translateY(10px)' },
+					'100%': { transform: 'translateX(0) translateY(0)' }
+				},
+				'orbit-bottom': {
+					'0%': { transform: 'translateX(0) translateY(0)' },
+					'25%': { transform: 'translateX(10px) translateY(-10px)' },
+					'50%': { transform: 'translateX(0) translateY(-20px)' },
+					'75%': { transform: 'translateX(-10px) translateY(-10px)' },
+					'100%': { transform: 'translateX(0) translateY(0)' }
+				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
@@ -107,11 +133,15 @@ export default {
 				'scale-in': 'scale-in 0.5s ease-out',
 				'blur-in': 'blur-in 0.5s ease-out',
 				'color-cycle': 'color-cycle 10s infinite',
+				'pulse-slow': 'pulse-slow 6s ease-in-out infinite',
+				'orbit-right': 'orbit-right 20s ease-in-out infinite',
+				'orbit-left': 'orbit-left 20s ease-in-out infinite',
+				'orbit-bottom': 'orbit-bottom 20s ease-in-out infinite',
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--gradient-color-stops))',
 			},
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [tailwindAnimate],
 } satisfies Config;
