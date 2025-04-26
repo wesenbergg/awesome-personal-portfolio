@@ -6,10 +6,12 @@ import { Pricing } from "@/components/Pricing";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
+import { SEO } from "@/components/SEO";
 
 const Index = () => {
   return (
     <main className="flex min-h-screen flex-col">
+      <SEO />
       <Navbar />
       <Hero />
       <About />

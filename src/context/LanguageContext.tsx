@@ -289,6 +289,16 @@ const translations: Translations = {
     en: "forks",
     fi: "haarautumaa",
   },
+
+  // SEO
+  "seo.description": {
+    en: "Portfolio of Boriss, software developer specialized in creating innovative web applications and scalable solutions with modern technologies.",
+    fi: "Borissin portfolio, full-stack-kehittäjä, joka on erikoistunut innovatiivisten verkkosovelluksien ja skaalautuvien ratkaisujen luomiseen modernilla teknologialla.",
+  },
+  "seo.keywords": {
+    en: "Boriss, developer, web development, full-stack, software engineer, portfolio, projects, programming, react, javascript, typescript",
+    fi: "Boriss, kehittäjä, web-kehitys, full-stack, ohjelmistoinsinööri, portfolio, projektit, ohjelmointi, react, javascript, typescript",
+  },
 };
 
 type LanguageContextType = {
