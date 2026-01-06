@@ -23,6 +23,7 @@ A modern, responsive portfolio website built with React, TypeScript, and Tailwin
 - **React Hook Form** - Form handling
 - **Zod** - Validation
 - **Internationalization** - Multi-language support
+- 
 
 ## 🏗️ Project Structure
 
